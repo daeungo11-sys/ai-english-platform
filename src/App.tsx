@@ -3,7 +3,8 @@ import Home from './pages/Home'
 import Speaking from './pages/Speaking'
 import Writing from './pages/Writing'
 import Reading from './pages/Reading'
-import { Home as HomeIcon, Mic, PenTool, BookOpen } from 'lucide-react'
+import Calendar from './pages/Calendar'
+import { Home as HomeIcon, Mic, PenTool, BookOpen, Calendar as CalendarIcon } from 'lucide-react'
 import './App.css'
 
 function App() {
@@ -33,6 +34,10 @@ function App() {
                 <BookOpen size={20} />
                 <span>읽기</span>
               </NavLink>
+              <NavLink to="/calendar" className={({ isActive }) => isActive ? 'active' : ''}>
+                <CalendarIcon size={20} />
+                <span>학습 기록</span>
+              </NavLink>
             </div>
           </div>
         </nav>
@@ -42,6 +47,7 @@ function App() {
             <Route path="/speaking" element={<Speaking />} />
             <Route path="/writing" element={<Writing />} />
             <Route path="/reading" element={<Reading />} />
+            <Route path="/calendar" element={<Calendar />} />
           </Routes>
         </main>
       </div>
