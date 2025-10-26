@@ -4,7 +4,7 @@
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
-.page-header {
+.calendar-page .page-header {
   text-align: center;
   color: white;
   margin-bottom: 1rem;
@@ -26,13 +26,13 @@
   text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
 }
 
-.page-header h1 {
+.calendar-page .page-header h1 {
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
   font-weight: 700;
 }
 
-.page-header p {
+.calendar-page .page-header p {
   font-size: 1.1rem;
   opacity: 1;
   color: white;
