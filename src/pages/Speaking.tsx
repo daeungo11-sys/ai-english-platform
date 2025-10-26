@@ -103,6 +103,10 @@ export default function Speaking() {
         <h1>말하기 연습</h1>
         <p>매일 새로운 질문에 답변해 영어 말하기 실력을 향상시켜보세요</p>
       </div>
+      
+      <div className="encouragement-banner">
+        💬 매일 영어로 말하는 연습을 하면 자신감이 쑥쑥 자라납니다!
+      </div>
 
       <div className="speaking-container">
         <div className="question-card">

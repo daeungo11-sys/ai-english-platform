@@ -177,6 +177,10 @@ export default function Reading() {
         <h1>읽기 연습</h1>
         <p>토익, 토플, 수능 지문으로 독해 실력을 향상시켜보세요</p>
       </div>
+      
+      <div className="encouragement-banner">
+        📚 꾸준히 읽으면 어휘력과 이해력이 자연스럽게 향상됩니다!
+      </div>
 
       <div className="exam-selector">
         <button

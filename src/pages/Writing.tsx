@@ -79,6 +79,10 @@ export default function Writing() {
         <h1>쓰기 연습</h1>
         <p>짧은 주제에 대해 에세이를 작성하고 AI 피드백을 받아보세요</p>
       </div>
+      
+      <div className="encouragement-banner">
+        ✍️ 글을 쓰는 것은 생각을 정리하는 가장 좋은 방법입니다!
+      </div>
 
       <div className="writing-container">
         <div className="topic-card">

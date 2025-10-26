@@ -152,6 +152,10 @@ export default function Calendar() {
         <h1>학습 기록</h1>
         <p>매일의 학습 경험을 기록하고 어려운 부분을 추적해보세요</p>
       </div>
+      
+      <div className="encouragement-banner">
+        📅 매일의 작은 기록이 큰 성장을 만들어냅니다!
+      </div>
 
       <div className="calendar-container">
         <div className="calendar-section">
