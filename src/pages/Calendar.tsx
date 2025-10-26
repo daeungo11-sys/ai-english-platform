@@ -150,7 +150,9 @@ export default function Calendar() {
     <div className="calendar-page">
       <div className="page-header">
         <h1>학습 기록</h1>
-        <p>매일의 학습 경험을 기록하고 어려운 부분을 추적해보세요</p>
+        <p style={{ color: 'white', opacity: 1, textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)' }}>
+          매일의 학습 경험을 기록하고 어려운 부분을 추적해보세요
+        </p>
       </div>
       
       <div className="calendar-encouragement-banner">
