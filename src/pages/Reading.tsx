@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { BookOpen, Clock, CheckCircle, XCircle } from 'lucide-react'
+import { Clock, CheckCircle, XCircle } from 'lucide-react'
 import './Reading.css'
 
 interface Question {
@@ -122,7 +122,7 @@ export default function Reading() {
   const currentQ = questions[currentQuestion]
 
   useEffect(() => {
-    let interval: NodeJS.Timeout | undefined
+    let interval: ReturnType<typeof setInterval> | undefined
     if (timeLeft > 0) {
       interval = setInterval(() => {
         setTimeLeft((prev) => prev - 1)

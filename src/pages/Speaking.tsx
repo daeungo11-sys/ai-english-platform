@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { Mic, Square, Play, RotateCcw, Clock } from 'lucide-react'
+import { Mic, Square, RotateCcw, Clock } from 'lucide-react'
 import './Speaking.css'
 
 interface Feedback {
@@ -21,7 +21,7 @@ export default function Speaking() {
   const todayQuestion = "Describe a memorable experience from your childhood and explain why it was significant to you."
 
   useEffect(() => {
-    let interval: NodeJS.Timeout | undefined
+    let interval: ReturnType<typeof setInterval> | undefined
     if (isRecording && timeLeft > 0) {
       interval = setInterval(() => {
         setTimeLeft((prev) => prev - 1)

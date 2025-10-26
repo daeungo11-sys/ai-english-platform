@@ -24,7 +24,7 @@ export default function Writing() {
   }, [text])
 
   useEffect(() => {
-    let interval: NodeJS.Timeout | undefined
+    let interval: ReturnType<typeof setInterval> | undefined
     if (isActive && timeLeft > 0) {
       interval = setInterval(() => {
         setTimeLeft((prev) => prev - 1)
