@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Calendar as CalendarIcon, Flag, Target, Plus, Edit2, Trash2 } from 'lucide-react'
+import { Calendar as CalendarIcon, Flag, Edit2, Trash2 } from 'lucide-react'
 import './Calendar.css'
 
 interface DiaryEntry {
@@ -64,7 +64,7 @@ export default function Calendar() {
   })
 
   const currentDate = new Date()
-  const [currentMonth, setCurrentMonth] = useState(currentDate.toLocaleString('en-US', { month: 'long' }))
+  const [currentMonth] = useState(currentDate.toLocaleString('en-US', { month: 'long' }))
   const currentYear = currentDate.getFullYear()
 
   const handleDateClick = (date: number | null, month: string) => {
