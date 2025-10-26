@@ -93,6 +93,10 @@ ai-english-platform/
 ### 🎨 현대적인 UI/UX
 직관적이고 사용하기 쉬운 인터페이스
 
+## 🌐 배포
+- **Vercel**: [배포 링크](https://ai-english-platform.vercel.app)
+- **GitHub**: https://github.com/daeungo11-sys/ai-english-platform
+
 ## 향후 계획
 
 - [ ] OpenAI API를 통한 실제 AI 피드백 연동
