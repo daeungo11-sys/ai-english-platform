@@ -10,7 +10,7 @@ interface Feedback {
 }
 
 export default function Writing() {
-  const [timeLeft, setTimeLeft] = useState(180) // 3 minutes
+  const [timeLeft, setTimeLeft] = useState(600) // 10 minutes
   const [text, setText] = useState('')
   const [wordCount, setWordCount] = useState(0)
   const [isActive, setIsActive] = useState(false)
@@ -40,7 +40,7 @@ export default function Writing() {
   const startWriting = () => {
     setIsActive(true)
     setText('')
-    setTimeLeft(180)
+    setTimeLeft(600)
     setFeedback(null)
   }
 
@@ -62,7 +62,7 @@ export default function Writing() {
   const resetWriting = () => {
     setText('')
     setWordCount(0)
-    setTimeLeft(180)
+    setTimeLeft(600)
     setIsActive(false)
     setFeedback(null)
   }
@@ -109,7 +109,7 @@ export default function Writing() {
                 <PenTool size={24} />
                 <span>작성 시작</span>
               </button>
-              <p className="prompt-text">3분 안에 주제에 대한 에세이를 작성하세요</p>
+              <p className="prompt-text">10분 안에 주제에 대한 에세이를 작성하세요</p>
             </div>
           ) : (
             <div className="writing-editor">
