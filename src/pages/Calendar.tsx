@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { Calendar as CalendarIcon, Flag, Edit2, Trash2 } from 'lucide-react'
 import './Calendar.css'
 
@@ -8,31 +8,6 @@ interface DiaryEntry {
   type: 'speaking' | 'writing' | 'reading'
   difficulty: string
   notes: string
-}
-
-const CALENDAR_2024 = {
-  January: [
-    [1, 2, 3, 4, 5, 6, 7],
-    [8, 9, 10, 11, 12, 13, 14],
-    [15, 16, 17, 18, 19, 20, 21],
-    [22, 23, 24, 25, 26, 27, 28],
-    [29, 30, 31]
-  ],
-  February: [
-    [null, null, null, 1, 2, 3, 4],
-    [5, 6, 7, 8, 9, 10, 11],
-    [12, 13, 14, 15, 16, 17, 18],
-    [19, 20, 21, 22, 23, 24, 25],
-    [26, 27, 28, 29]
-  ],
-  March: [
-    [null, null, null, null, null, 1, 2],
-    [3, 4, 5, 6, 7, 8, 9],
-    [10, 11, 12, 13, 14, 15, 16],
-    [17, 18, 19, 20, 21, 22, 23],
-    [24, 25, 26, 27, 28, 29, 30],
-    [31]
-  ]
 }
 
 export default function Calendar() {
@@ -67,9 +42,38 @@ export default function Calendar() {
   const [currentMonth] = useState(currentDate.toLocaleString('en-US', { month: 'long' }))
   const currentYear = currentDate.getFullYear()
 
-  const handleDateClick = (date: number | null, month: string) => {
+  // Generate calendar grid dynamically
+  const calendarGrid = useMemo(() => {
+    const firstDay = new Date(currentYear, currentDate.getMonth(), 1).getDay()
+    const daysInMonth = new Date(currentYear, currentDate.getMonth() + 1, 0).getDate()
+    const weeks: (number | null)[][] = []
+    let currentWeek: (number | null)[] = []
+    
+    // Add empty cells for days before month starts
+    for (let i = 0; i < firstDay; i++) {
+      currentWeek.push(null)
+    }
+    
+    // Add all days of the month
+    for (let day = 1; day <= daysInMonth; day++) {
+      currentWeek.push(day)
+      if (currentWeek.length === 7) {
+        weeks.push(currentWeek)
+        currentWeek = []
+      }
+    }
+    
+    // Add remaining empty cells at the end
+    if (currentWeek.length > 0) {
+      weeks.push(currentWeek)
+    }
+    
+    return weeks
+  }, [currentYear, currentMonth])
+
+  const handleDateClick = (date: number | null) => {
     if (!date) return
-    const fullDate = `${currentYear}-${String(currentMonthToNumber(month)).padStart(2, '0')}-${String(date).padStart(2, '0')}`
+    const fullDate = `${currentYear}-${String(currentDate.getMonth() + 1).padStart(2, '0')}-${String(date).padStart(2, '0')}`
     setSelectedDate(fullDate)
     setShowModal(true)
     setFormData({ type: 'speaking', difficulty: '하', notes: '' })
@@ -108,14 +112,8 @@ export default function Calendar() {
     setShowModal(true)
   }
 
-  const currentMonthToNumber = (month: string) => {
-    const months = ['January', 'February', 'March', 'April', 'May', 'June', 
-                   'July', 'August', 'September', 'October', 'November', 'December']
-    return months.indexOf(month) + 1
-  }
-
-  const getEntryForDate = (date: number, month: string) => {
-    const fullDate = `${currentYear}-${String(currentMonthToNumber(month)).padStart(2, '0')}-${String(date).padStart(2, '0')}`
+  const getEntryForDate = (date: number) => {
+    const fullDate = `${currentYear}-${String(currentDate.getMonth() + 1).padStart(2, '0')}-${String(date).padStart(2, '0')}`
     return entries.find(e => e.date === fullDate)
   }
 
@@ -174,15 +172,15 @@ export default function Calendar() {
               <div>토</div>
             </div>
 
-            {CALENDAR_2024[currentMonth as keyof typeof CALENDAR_2024]?.map((week, weekIndex) => (
+            {calendarGrid.map((week, weekIndex) => (
               <div key={weekIndex} className="week-row">
                 {week.map((date, dateIndex) => {
-                  const entry = date ? getEntryForDate(date, currentMonth) : null
+                  const entry = date ? getEntryForDate(date) : null
                   return (
                     <div
                       key={dateIndex}
                       className={`calendar-day ${!date ? 'empty' : ''} ${entry ? 'has-entry' : ''}`}
-                      onClick={() => handleDateClick(date, currentMonth)}
+                      onClick={() => handleDateClick(date)}
                     >
                       {date && (
                         <>
