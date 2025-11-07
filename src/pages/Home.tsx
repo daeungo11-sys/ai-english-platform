@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Mic, PenTool, BookOpen, TrendingUp, Clock, Target } from 'lucide-react'
+import { Mic, PenTool, BookOpen, TrendingUp, Clock, Target, ClipboardCheck, User, Sparkles } from 'lucide-react'
 import './Home.css'
 
 export default function Home() {
@@ -11,6 +11,18 @@ export default function Home() {
       </div>
 
       <div className="features">
+        <Link to="/level-test" className="feature-card">
+          <div className="icon-container level-test">
+            <ClipboardCheck size={40} />
+          </div>
+          <h2>레벨 테스트</h2>
+          <p>객관식, 서술형, 독해, 번역 14문항으로 실력을 측정하고 레벨별 강/약점을 분석받으세요.</p>
+          <div className="feature-tags">
+            <span className="tag"><Clock size={14} /> 14문항</span>
+            <span className="tag"><Target size={14} /> 맞춤 분석</span>
+          </div>
+        </Link>
+
         <Link to="/speaking" className="feature-card">
           <div className="icon-container speaking">
             <Mic size={40} />
@@ -44,6 +56,30 @@ export default function Home() {
           <div className="feature-tags">
             <span className="tag"><Clock size={14} /> 2분/문제</span>
             <span className="tag"><Target size={14} /> 해설 제공</span>
+          </div>
+        </Link>
+
+        <Link to="/ai-feedback" className="feature-card">
+          <div className="icon-container ai-feedback">
+            <Sparkles size={40} />
+          </div>
+          <h2>AI 피드백</h2>
+          <p>학습자의 레벨을 반영하여 영어 학습 관련 질문에 즉시 답변해드립니다.</p>
+          <div className="feature-tags">
+            <span className="tag"><Sparkles size={14} /> 레벨 반영</span>
+            <span className="tag"><Target size={14} /> 즉시 답변</span>
+          </div>
+        </Link>
+
+        <Link to="/mypage" className="feature-card">
+          <div className="icon-container mypage">
+            <User size={40} />
+          </div>
+          <h2>마이페이지</h2>
+          <p>오답노트, 학습 통계, 문법/어휘 분석, 약점 진단 등 학습 현황을 한눈에 확인하세요.</p>
+          <div className="feature-tags">
+            <span className="tag"><TrendingUp size={14} /> 통계 분석</span>
+            <span className="tag"><Target size={14} /> 약점 진단</span>
           </div>
         </Link>
       </div>

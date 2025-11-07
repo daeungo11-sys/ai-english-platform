@@ -88,6 +88,18 @@
   background: linear-gradient(135deg, #10b981, #059669);
 }
 
+.icon-container.level-test {
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+}
+
+.icon-container.ai-feedback {
+  background: linear-gradient(135deg, #ec4899, #db2777);
+}
+
+.icon-container.mypage {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+}
+
 .icon-container svg {
   color: white;
 }
