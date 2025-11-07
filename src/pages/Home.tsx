@@ -28,9 +28,9 @@ export default function Home() {
             <PenTool size={40} />
           </div>
           <h2>쓰기 연습</h2>
-          <p>짧은 주제에 대해 3분 안에 에세이를 작성하고, AI가 맞춤형 피드백을 제공합니다.</p>
+          <p>짧은 주제에 대해 10분 안에 에세이를 작성하고, AI가 맞춤형 피드백을 제공합니다.</p>
           <div className="feature-tags">
-            <span className="tag"><Clock size={14} /> 3분 제한</span>
+            <span className="tag"><Clock size={14} /> 10분 제한</span>
             <span className="tag"><Target size={14} /> AI 교정</span>
           </div>
         </Link>
