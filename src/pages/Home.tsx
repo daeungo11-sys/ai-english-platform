@@ -76,10 +76,10 @@ export default function Home() {
             <User size={40} />
           </div>
           <h2>마이페이지</h2>
-          <p>오답노트, 학습 통계, 문법/어휘 분석, 약점 진단 등 학습 현황을 한눈에 확인하세요.</p>
+          <p>학습 통계와 오답노트를 확인하세요.</p>
           <div className="feature-tags">
-            <span className="tag"><TrendingUp size={14} /> 통계 분석</span>
-            <span className="tag"><Target size={14} /> 약점 진단</span>
+            <span className="tag"><TrendingUp size={14} /> 통계</span>
+            <span className="tag"><Target size={14} /> 분석</span>
           </div>
         </Link>
       </div>
